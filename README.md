@@ -1,70 +1,44 @@
-# HMS Walletkit Sample
+# 卡券功能使用
+[**官方Demo地址**](https://github.com/HMS-Core/hms-wallet-clientdemo-android)
 
-## Table of Contents
+**1.当前项目介绍：**
+* 使用两种方式推送卡券都需要后台代码配合：
+  * 一、卡券包方式推送卡券：需要后台的`生成卡券包DEMO`-[hms-wallet-passgenerator][hms-wallet-passgenerator]生成卡券包数据`xxx.hwpass`文件。
+  * 二、JWE方式推送卡券：需要后台的`推送卡券模板DEMO`-[hms-wallet-severdemo][hms-wallet-severdemo]在华为服务器生成卡券模板。
+* 当前卡券只是在`华为钱包服务器`生成了一个卡券数据，可用在`华为钱包APP`里面查看，并没有卡券的NFC功能
 
- * [Introduction](#introduction)
- * [Installation](#installation)
- * [Supported Environments](#supported-environments)
- * [Sample Code](#sample-code)
- * [License](#license)
- 
- 
-## Introduction
-This sample code invokes HUAWEI Wallet Kit client APIs. It provides many sample methods for your reference or usage.
+**2.在上面的基础上给卡券添加`NFC功能`**
+(待完成🥚)
+* 👉 [nfc-文档][nfc-文档]
+* 👉 [nfc-android-api][WalletPassApi-nfc]
+* 👉 [华为开发者联盟][华为开发者联盟]
 
-## Installation
-Before using the sample code, check whether the android environment has been installed.
-Decompress the sample code package.
-    
-Import the decompressed project to your Android Studio.
-Refresh and sync the project.
-Run the sample on Android device or emulator.
-    
-## Supported Environments
-Android Studio 3.X
-Java JDK(1.8 or later)
-SDK Platform(26 or later)
-Gradle(4.6 or later)
-	
-## Sample Code
-The sample code provides two methods for adding passes: Claiming passes by app, quick app, or HUAWEI Wallet CardStore and Claiming passes by web page, SMS message, email, or app.
+### 一.优惠券功能使用
 
-1. **Claiming passes by app, quick app, or HUAWEI Wallet CardStore：**
-Currently, this mode is available only in the Chinese mainland.
+`现在的卡券唯一标识已经到了：EventTicketPass100016之后测试会增加，如果要测试设置一个大位数`
 
-- Applying for the Wallet Kit Service.
-Developers need to apply for the Wallet Kit Service. You should apply for a service ID and obtain a certificate, which is used to encrypt pass package.
-[Chinese](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/guide-agc-overview-0000001050158420-V5) / [English](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/guide-agc-overview-0000001050158420-V5)
+> 此功能使用说明：当前操作是添加卡券到华为服务器，华为钱包显示会显示服务器的数据。  
+> 只是一条卡券数据，并非生成真实的可用的NFC卡。
 
-- The developer uses the server demo to generate a pass package.
-A developer needs to generate a voucher package using the server demo.
-For details about how to generate voucher packages using the server demo, see [huawei-wallet-server-windows-passsdk-demo.zip](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Examples-V5/java-sample-code-0000001050157448-V5)
+使用步骤：
+* 0.在[`华为开发者联盟`][develop_web]注册应用，并创建`华为钱包服务-云侧接入`
+    ![wallet_developer.png](doc/wallet_developer.png)
+* 1.使用`hms-wallet-severdemo`在`华为服务器`创建`卡券模板`
+    ![service_Model.png](doc/service_Model.png)
+* 2.修改Android项目：
+  * 修改`app/build.gradle`里面的`applicationId`为：上面创建的应用包名
+  * 修改`Constant`里面的`PRIVATE_KEY_RUSSIA_DEBUG`为上面创建的钱包服务的私钥
+  * 修改`coupon_card_info.xml布局`文件中的：`issuerIdCoupon` 为：上面创建的应用的`APP ID`
+  * 修改`coupon_card_info.xml布局`文件中的：`passStyleIdentifierCoupon` 为：上面创建的卡券模板的`passStyleIdentifier-模板id`
+  * 修改`coupon_card_info.xml布局`文件中的：`typeIdentifierCoupon` 为：上面创建的钱包服务的`passTypeIdentifier-钱包服务id`
+* 2.1Android项目其他修改：
+  * 签名jks配置-和开发者后台配置一致
+  * 引入`agcp`依赖以及`agcp配置json`
+* 3.运行Android项目，进入APP点击`JWE添加卡券方式`-`添加优惠券`-`修改卡券唯一标识,保证当前编号没有被添加过`-`walletKitSDK添卡`即可添加到钱包。
 
-- Push the pass package to the Huawei Pay app.
-The developer replaces createPassData() in TestUtil.java. This step is only used to simulate card adding. In the actual situation, the developer needs to obtain the card and pass package data from the developer server.
-
-2. **Claiming passes by web page, SMS message, email, or app:**
-- Applying for the Wallet Kit Service.
-Developers need to apply for the Wallet Kit Service. You should apply for a service ID and generate a pair of RSA keys (the private key is used to encrypt JWE data).
-[Chinese](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/guide-agc-overview-0000001050158420-V5) / [English](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/guide-agc-overview-0000001050158420-V5)
-
-- Push models to Huawei servers.
-This step needs to be performed before the developer uses the demo to add pass instances. For details, see the development guide.
-[Chinese](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides-V5/guide-webpage-0000001050042334-V5#ZH-CN_TOPIC_0000001050159047__section179891059101817) / [English](https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/guide-webpage-0000001050042334-V5#ZH-CN_TOPIC_0000001050159047__section179891059101817)
-
-- Use the demo to convert a pass instance into JWE and push the JWE to the Huawei server.
-Developers need to replace the private key in Constant.java. The private key is obtained from step 1. The private key is used to encrypt JWE data. After JWE data is generated, it can be pushed to Huawei servers. After the push is successful, users can view the pass card in Huawei Pay.
-
-## Question or issues
-If you want to evaluate more about HMS Core,
-[r/HMSCore on Reddit](https://www.reddit.com/r/HuaweiDevelopers/) is for you to keep up with latest news about HMS Core, and to exchange insights with other developers.
-
-If you have questions about how to use HMS samples, try the following options:
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/huawei-mobile-services) is the best place for any programming questions. Be sure to tag your question with 
-`huawei-mobile-services`.
-- [Huawei Developer Forum](https://forums.developer.huawei.com/forumPortal/en/home?fid=0101187876626530001) HMS Core Module is great for general questions, or seeking recommendations and opinions.
-
-If you run into a bug in our samples, please submit an [issue](https://github.com/HMS-Core/hms-scan-demo/issues) to the Repository. Even better you can submit a [Pull Request](https://github.com/HMS-Core/hms-scan-demo/pulls) with a fix.
-
-##  License
-Wallet Kit SDK sample is licensed under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+[develop_web]:https://developer.huawei.com/consumer/cn/
+[hms-wallet-severdemo]:https://github.com/yueyue10/hms-wallet-severdemo
+[hms-wallet-passgenerator]:https://github.com/HMS-Core/hms-wallet-passgenerator
+[nfc-文档]:https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/access-overa-nfc-0000001050042374
+[WalletPassApi-nfc]:https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/api-hw-passsdk-walletpassapi-0000001050986379-V5
+[华为开发者联盟]:https://developer.huawei.com/consumer/cn/console#/serviceCards/AppService
