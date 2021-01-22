@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:weightSum="1">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--保存优惠券-->
+    <Button
+        android:id="@+id/clickSaveCouponData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:onClick="clickSaveCouponData"
+        android:text="@string/save_coupon_card"
+        android:textAllCaps="false" />
 
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/clickSaveCouponData">
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -19,49 +30,57 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/serinumber"
                     android:textColor="#FF0000" />
+
                 <EditText
                     android:id="@+id/serinumberCoupon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp" />
+                    android:layout_marginTop="0dp"
+                    android:text="EventTicketPass100014" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/card_number"
                     android:textColor="#FF0000" />
+
                 <EditText
                     android:id="@+id/cardNumberCoupon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp" />
+                    android:layout_marginTop="0dp"
+                    android:text="123456" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/pass_style_identifier"
                     android:textColor="#FF0000" />
+
                 <EditText
                     android:id="@+id/passStyleIdentifierCoupon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
-                    android:text="offer001"/>
+                    android:text="EventTicketTestModel" />
             </LinearLayout>
 
             <LinearLayout
@@ -80,7 +99,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
-                    android:text="hwpass.type.offer.hmspublic" />
+                    android:text="hwpass.zyj.testhms.pass.ticket" />
             </LinearLayout>
 
             <LinearLayout
@@ -89,17 +108,18 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:text="@string/pass_issuer_id"
                     android:textColor="#FF0000" />
+
                 <EditText
                     android:id="@+id/issuerIdCoupon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
                     android:digits="0123456789"
-                    android:text="60993" />
+                    android:text="103685579" />
             </LinearLayout>
 
 
@@ -118,7 +138,6 @@
             </LinearLayout>
 
 
-
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -129,6 +148,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/info_module_data_hex_background_color"
                     android:textColor="#FF0000" />
+
                 <EditText
                     android:id="@+id/backgroundColorCoupon"
                     android:layout_width="match_parent"
@@ -147,11 +167,13 @@
                     android:layout_height="wrap_content"
                     android:text="@string/logo"
                     android:textColor="#FF0000" />
+
                 <EditText
                     android:id="@+id/logoCoupon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
+                    android:singleLine="true"
                     android:text="https://contentcenter-drcn.dbankcdn.com/cch5/Wallet-WalletKit/picres/cloudRes/coupon_logo.png" />
             </LinearLayout>
 
@@ -192,9 +214,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
-                    android:text="Coupon title"/>
+                    android:text="Coupon title" />
             </LinearLayout>
-
 
             <!--状态下拉框-->
             <LinearLayout
@@ -274,6 +295,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/barcode_text" />
+
                 <EditText
                     android:id="@+id/barcodeTextCoupon"
                     android:layout_width="match_parent"
@@ -286,10 +308,12 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/barcode_value" />
+
                 <EditText
                     android:id="@+id/barcodeValueCoupon"
                     android:layout_width="match_parent"
@@ -305,10 +329,12 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/Details" />
+
                 <EditText
                     android:id="@+id/DetailsCoupon"
                     android:layout_width="match_parent"
@@ -367,8 +393,8 @@
                     android:id="@+id/imageModuleDataMainImageUrisCoupon1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="https://contentcenter-drcn.dbankcdn.com/cch5/wallet/HiWallet/cloudRes/ic_empty_traffic.png"
-                    android:layout_marginTop="0dp" />
+                    android:layout_marginTop="0dp"
+                    android:text="https://contentcenter-drcn.dbankcdn.com/cch5/wallet/HiWallet/cloudRes/ic_empty_traffic.png" />
 
             </LinearLayout>
 
@@ -420,13 +446,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/url1"/>
+                    android:text="@string/url1" />
 
                 <EditText
                     android:id="@+id/couponUrlLable"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
-                    android:layout_width="match_parent" />
+                    android:layout_marginTop="0dp" />
 
             </LinearLayout>
 
@@ -442,9 +468,9 @@
 
                 <EditText
                     android:id="@+id/couponUrlValue"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
-                    android:layout_width="match_parent" />
+                    android:layout_marginTop="0dp" />
 
             </LinearLayout>
 
@@ -460,9 +486,9 @@
 
                 <EditText
                     android:id="@+id/couponUrlLable1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
-                    android:layout_width="match_parent" />
+                    android:layout_marginTop="0dp" />
 
             </LinearLayout>
 
@@ -478,9 +504,9 @@
 
                 <EditText
                     android:id="@+id/couponUrlValue1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
-                    android:layout_width="match_parent" />
+                    android:layout_marginTop="0dp" />
 
             </LinearLayout>
 
@@ -500,8 +526,8 @@
                     android:id="@+id/messageHeaderCoupon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Message"
-                    android:layout_marginTop="0dp" />
+                    android:layout_marginTop="0dp"
+                    android:text="Message" />
 
             </LinearLayout>
 
@@ -519,8 +545,8 @@
                     android:id="@+id/messageBodyCoupon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Welcome to use our Coupon."
-                    android:layout_marginTop="0dp" />
+                    android:layout_marginTop="0dp"
+                    android:text="Welcome to use our Coupon." />
 
             </LinearLayout>
 
@@ -560,21 +586,7 @@
 
             </LinearLayout>
 
-
-            <!--保存优惠券-->
-            <Button
-                android:id="@+id/clickSaveCouponData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:onClick="clickSaveCouponData"
-                android:text="@string/save_coupon_card"
-                android:textAllCaps="false">
-
-            </Button>
         </LinearLayout>
 
     </ScrollView>
-
-</LinearLayout>
+</RelativeLayout>

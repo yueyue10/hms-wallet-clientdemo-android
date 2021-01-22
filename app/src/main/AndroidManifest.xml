@@ -13,9 +13,9 @@
         <!-- AppId is the value in the developer alliance app infomation -->
         <meta-data
             android:name="com.huawei.hms.client.appid"
-            android:value="******" />
+            android:value="103685579" />
 
-        <activity android:name="com.huawei.hms.wallet.pageHomeActivity">
+        <activity android:name="com.huawei.hms.wallet.PageHomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

@@ -208,7 +208,7 @@ public class PassTestActivity extends FragmentActivity {
                 browserUrl="https://walletpass-drru.cloud.huawei.com/walletkit/consumer";
                 break;
             case Constant.ENVIRMENT_RUSSIA_DEBUG:
-                browserUrl="https://walletkit-cstr.hwcloudtest.cn:8080/walletkit/consumer";
+                browserUrl="https://walletpass-drcn.cloud.huawei.com/walletkit/consumer";
                 break;
             default:
                 break;

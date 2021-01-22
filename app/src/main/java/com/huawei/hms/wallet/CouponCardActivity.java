@@ -52,8 +52,8 @@ public class CouponCardActivity extends Activity implements HuaweiApiClient.OnCo
     private List<String> data_list;
     private ArrayAdapter<String> arr_adapter;
     int indext;
-    private String startTime = "";
-    private String endTime = "";
+    private String startTime = "2021-1-17";
+    private String endTime = "2021-12-30";
     private int environment = Constant.ENVIRMENT_RUSSIA_DEBUG;
 
     @Override
