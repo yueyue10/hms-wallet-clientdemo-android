@@ -14,7 +14,7 @@
    limitations under the License.
  */
 
-package com.zyj.testhms;
+package com.zyj.testhms.wallet;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,6 +27,7 @@ import android.widget.Spinner;
 
 import com.huawei.hms.api.ConnectionResult;
 import com.huawei.hms.api.HuaweiApiClient;
+import com.zyj.testhms.R;
 
 import java.util.ArrayList;
 import java.util.List;

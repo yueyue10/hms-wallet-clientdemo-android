@@ -14,7 +14,7 @@
    limitations under the License.
  */
 
-package com.zyj.testhms;
+package com.zyj.testhms.wallet;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -29,6 +29,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.zyj.testhms.R;
 import com.zyj.testhms.util.TestUtil;
 import com.huawei.wallet.hmspass.service.IpassModifyNFCCardImpl;
 import com.huawei.wallet.hmspass.service.WalletPassApiResponse;

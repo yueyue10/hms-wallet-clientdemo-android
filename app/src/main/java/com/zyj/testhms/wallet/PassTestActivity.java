@@ -15,7 +15,7 @@
  */
 
 
-package com.zyj.testhms;
+package com.zyj.testhms.wallet;
 
 import com.huawei.hms.wallet.AutoResolvableForegroundIntentResult;
 import com.huawei.hms.wallet.CreateWalletPassRequest;
@@ -35,6 +35,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.huawei.hms.wallet.constant.WalletPassConstant;
+import com.zyj.testhms.R;
 import com.zyj.testhms.util.JweUtil;
 import com.huawei.hmf.tasks.Task;
 

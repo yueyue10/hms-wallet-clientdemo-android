@@ -23,12 +23,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PassDataObjectActivity" />
-        <activity android:name=".GiftCardActivity" />
-        <activity android:name=".CouponCardActivity" />
-        <activity android:name=".PassTestActivity" />
-        <activity android:name=".WalletPassCnActivity" />
-        <activity android:name=".MainIndexActivity" />
+        <activity android:name=".wallet.PassDataObjectActivity" />
+        <activity android:name=".wallet.GiftCardActivity" />
+        <activity android:name=".wallet.CouponCardActivity" />
+        <activity android:name=".wallet.PassTestActivity" />
+        <activity android:name=".wallet.WalletPassCnActivity" />
+        <activity android:name=".wallet.MainIndexActivity" />
         <activity android:name=".apptest.PushGetTokenActivity" />
 
         <meta-data

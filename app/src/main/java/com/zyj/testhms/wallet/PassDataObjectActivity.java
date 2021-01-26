@@ -14,7 +14,7 @@
    limitations under the License.
  */
 
-package com.zyj.testhms;
+package com.zyj.testhms.wallet;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -40,6 +40,7 @@ import com.huawei.hms.wallet.pass.Location;
 import com.huawei.hms.wallet.pass.PassObject;
 import com.huawei.hms.wallet.pass.PassStatus;
 import com.huawei.hms.wallet.pass.RelatedPassInfo;
+import com.zyj.testhms.R;
 import com.zyj.testhms.util.BasisTimesUtils;
 
 import java.text.SimpleDateFormat;

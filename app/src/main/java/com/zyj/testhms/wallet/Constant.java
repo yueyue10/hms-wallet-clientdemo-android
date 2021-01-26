@@ -14,7 +14,7 @@
    limitations under the License.
  */
 
-package com.zyj.testhms;
+package com.zyj.testhms.wallet;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -23,6 +23,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.zyj.testhms.apptest.PushGetTokenActivity;
+import com.zyj.testhms.wallet.MainIndexActivity;
+import com.zyj.testhms.wallet.WalletPassCnActivity;
 
 public class PageHomeActivity extends Activity {
     boolean mIsSupportedBade = true;
