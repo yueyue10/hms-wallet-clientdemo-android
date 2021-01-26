@@ -14,22 +14,24 @@
    limitations under the License.
  */
 
-package com.huawei.hms.wallet;
+package com.zyj.testhms;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
-import com.huawei.hms.wallet.apptest.R;
+import com.zyj.testhms.apptest.PushGetTokenActivity;
 
 public class PageHomeActivity extends Activity {
+    boolean mIsSupportedBade = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
-
+        setBadgeNum(10);
     }
 
     public void hwPassBtn1(View view) {
@@ -40,5 +42,25 @@ public class PageHomeActivity extends Activity {
     public void hwPassBtn2(View view) {
         Intent intent = new Intent(this, MainIndexActivity.class);
         startActivity(intent);
+    }
+
+    public void hwPassBtn3(View view) {
+        Intent intent = new Intent(this, PushGetTokenActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * set badge number
+     */
+    public void setBadgeNum(int num) {
+        try {
+            Bundle bunlde = new Bundle();
+            bunlde.putString("package", "com.zyj.testhms"); // com.test.badge is your package name
+            bunlde.putString("class", "com.zyj.testhms.PageHomeActivity"); // com.test. badge.MainActivity is your apk main activity
+            bunlde.putInt("badgenumber", num);
+            this.getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", null, bunlde);
+        } catch (Exception e) {
+            mIsSupportedBade = false;
+        }
     }
 }

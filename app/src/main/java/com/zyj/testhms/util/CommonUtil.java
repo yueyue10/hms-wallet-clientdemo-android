@@ -14,20 +14,34 @@
    limitations under the License.
  */
 
-package com.huawei.hms.wallet.util;
 
+package com.zyj.testhms.util;
 
-
-public class RandomUtils {
-    private RandomUtils() {
+/**
+ * Common utility class.
+ *
+ * @author 005932
+ * @since 2019-07-29
+ */
+public abstract class CommonUtil {
+    /**
+     * Check if a string is null or empty.
+     *
+     * @param str the string to be checked.
+     * @return if the string is null or empty.
+     */
+    public static boolean isNull(String str) {
+        return null == str || "".equals(str.trim());
     }
 
-    public static byte[] generateSecureRandomByte(int byteSize) {
-        return CommCryptUtil.genSecureRandomByte(byteSize);
+    /**
+     * Check if an object is null.
+     *
+     * @param object the object to be checked.
+     * @return if the object is null.
+     */
+    public static boolean isNull(Object object) {
+        return object == null;
     }
 
-    public static String generateSecureRandomFactor(int size) {
-        byte[] factor = generateSecureRandomByte(size);
-        return HwHex.encodeHexString(factor);
-    }
 }

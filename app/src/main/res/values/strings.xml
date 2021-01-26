@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">HmsWalletKitDemo</string>
+    <string name="app_name">HmsTestDemo</string>
     <!--会员卡字段-->
     <string name="pass_type_id">服务号</string>
     <string name="pass_issuer_id">issuerId(开发者联盟appId,测试:60993，开发:300011981)</string>

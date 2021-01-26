@@ -14,12 +14,12 @@
  *    limitations under the License.
  */
 
-package com.huawei.hms.wallet.util;
+package com.zyj.testhms.util;
 
 import android.util.Base64;
 
 import com.alibaba.fastjson.JSONObject;
-import com.huawei.hms.wallet.Constant;
+import com.zyj.testhms.Constant;
 
 import java.io.ByteArrayOutputStream;
 import java.nio.charset.StandardCharsets;

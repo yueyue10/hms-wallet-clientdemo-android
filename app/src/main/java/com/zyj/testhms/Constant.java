@@ -14,7 +14,7 @@
    limitations under the License.
  */
 
-package com.huawei.hms.wallet;
+package com.zyj.testhms;
 
 import java.util.HashMap;
 import java.util.Map;

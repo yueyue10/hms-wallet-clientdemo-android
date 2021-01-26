@@ -15,9 +15,14 @@
  */
 
 
-package com.huawei.hms.wallet;
+package com.zyj.testhms;
 
-import com.huawei.hms.wallet.apptest.R;
+import com.huawei.hms.wallet.AutoResolvableForegroundIntentResult;
+import com.huawei.hms.wallet.CreateWalletPassRequest;
+import com.huawei.hms.wallet.ResolveTaskHelper;
+import com.huawei.hms.wallet.Wallet;
+import com.huawei.hms.wallet.WalletPassClient;
+
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -30,7 +35,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.huawei.hms.wallet.constant.WalletPassConstant;
-import com.huawei.hms.wallet.util.JweUtil;
+import com.zyj.testhms.util.JweUtil;
 import com.huawei.hmf.tasks.Task;
 
 public class PassTestActivity extends FragmentActivity {

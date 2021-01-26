@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <Button
         android:id="@+id/hw_pass_btn1"
-        android:onClick ="hwPassBtn1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="@string/home_page_zh"/>
+        android:onClick="hwPassBtn1"
+        android:text="@string/home_page_zh" />
 
     <Button
         android:id="@+id/hw_pass_btn2"
-        android:onClick ="hwPassBtn2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="@string/home_page_en"/>
+        android:onClick="hwPassBtn2"
+        android:text="@string/home_page_en" />
+
+    <Button
+        android:id="@+id/hw_pass_btn3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:onClick="hwPassBtn3"
+        android:text="推送测试" />
 
 </LinearLayout>

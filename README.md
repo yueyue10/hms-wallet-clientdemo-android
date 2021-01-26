@@ -41,4 +41,4 @@
 [hms-wallet-passgenerator]:https://github.com/HMS-Core/hms-wallet-passgenerator
 [nfc-文档]:https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/access-overa-nfc-0000001050042374
 [WalletPassApi-nfc]:https://developer.huawei.com/consumer/cn/doc/development/HMSCore-References-V5/api-hw-passsdk-walletpassapi-0000001050986379-V5
-[华为开发者联盟]:https://developer.huawei.com/consumer/cn/console#/serviceCards/AppService
+[华为开发者联盟]:https://developer.huawei.com/consumer/cn/console

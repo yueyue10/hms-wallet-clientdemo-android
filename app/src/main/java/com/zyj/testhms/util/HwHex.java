@@ -14,7 +14,7 @@
    limitations under the License.
  */
 
-package com.huawei.hms.wallet.util;
+package com.zyj.testhms.util;
 
 import java.nio.charset.Charset;
 

@@ -14,8 +14,9 @@
    limitations under the License.
  */
 
-package com.huawei.hms.wallet;
+package com.zyj.testhms;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
@@ -25,16 +26,15 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.huawei.hms.wallet.util.TestUtil;
+import com.zyj.testhms.util.TestUtil;
 import com.huawei.wallet.hmspass.service.IpassModifyNFCCardImpl;
 import com.huawei.wallet.hmspass.service.WalletPassApiResponse;
 import com.huawei.wallet.hmspass.service.WalletPassStatus;
 import com.hw.passsdk.WalletPassApi;
-import com.huawei.hms.wallet.apptest.R;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -153,16 +153,6 @@ public class WalletPassCnActivity extends Activity {
     private TextView resultText;
 
     /**
-     * Input aapid
-     */
-    private EditText appIdEdit;
-
-    /**
-     * Input passType
-     */
-    private EditText passTypeEdit;
-
-    /**
      * The object calling PassSdk
      */
     private WalletPassApi mWalletPassApi;
@@ -175,14 +165,14 @@ public class WalletPassCnActivity extends Activity {
     /**
      * Take Huitailong as an example
      */
-    public final static String WHITECARD_HUTLON_PASSTYPEID = "hwpass.*****.***";
+    public final static String WHITECARD_HUTLON_PASSTYPEID = "hwpass.zyj.testhms.pass.ticket";
 
-    public final static String WHITECARD_HUTLON_APPID = "1011******";
+    public final static String WHITECARD_HUTLON_APPID = "103685579";
 
-    public final static String WHITECARD_HUTLON_PASSID = "BYD20190808*********";
+    public final static String WHITECARD_HUTLON_PASSID = "EventTicketPass100024";
 
     public final static String sing =
-        "MIIHRQYJKoZIhvcNAQcCoIIHNjCCBzICAQExDzANBglghkgBZQMEAgEFADCBoQYJKoZIhvcNAQcBoIGTBIGQeyJwYXNzVHlwZUlkIjoiaHdwYXNzLmh1YXdlaS53ZWxpbmsucGFzcy5lY2FyZCIsInBhc3NJZCI6IkFBQUJaNkVNaUZlWVFOanZMamFwelE5T2hIRExQdU9DMGRxLWF4TzJFMkEiLCJhY2Nlc3N0b2tlbiI6IjIwMTkwMTEyMTQ0NDU3NzEyMTc4MTYxMiJ9oIIEZzCCBGMwggJLoAMCAQICEiAYEhAhFjBsdVypm/xNTfsBETANBgkqhkiG9w0BAQsFADBfMQswCQYDVQQGEwJDTjEPMA0GA1UECgwGSHVhd2VpMRMwEQYDVQQLDApIdWF3ZWkgQ0JHMSowKAYDVQQDDCFIdWF3ZWkgQ0JHIERldmVsb3BlciBSZWxhdGlvbnMgQ0EwHhcNMTgxMjA5MTMxNjI5WhcNMjgxMjA3MTMxNjI5WjBpMQswCQYDVQQGEwJDTjEPMA0GA1UEChMGSHVhd2VpMR8wHQYDVQQLExZIdWF3ZWkgQ0JHIFdhbGxldCBQYXNzMSgwJgYDVQQDEx9od3Bhc3MuaHVhd2VpLndlbGluay5wYXNzLmVjYXJkMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1xaHQdvCIEsCwiF6JVuKPdf/aW9jboY7mwKZ81ussgDtjU3qIFR3eapooacav*****************************************************************************************************";
+        "7a68616f7975656a756e";
 
     private String returnRes;
 
@@ -193,6 +183,7 @@ public class WalletPassCnActivity extends Activity {
     private Map<String, Object> readNFCKeyMap = new HashMap<String, Object>();
 
     @Override
+    @SuppressLint("SourceLockedOrientationActivity")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wallet_pass_cn);
@@ -201,8 +192,6 @@ public class WalletPassCnActivity extends Activity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         mWalletPassApi = new WalletPassApi(this);
 
-        appIdEdit = (EditText) findViewById(R.id.edit_appid);
-        passTypeEdit = (EditText) findViewById(R.id.edit_passtype);
         resultText = (TextView) findViewById(R.id.result);
         canAddPassBtn = (Button) findViewById(R.id.can_add_pass_btn1);
         addPassBtn = (Button) findViewById(R.id.add_pass_btn2);
@@ -377,7 +366,7 @@ public class WalletPassCnActivity extends Activity {
         requestRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String registerRequestBody = "{\"requestBody\":{\"passTypeIdentifier\":\"\",\"serialNumber\":\"\"}}";
+                String registerRequestBody = "{\"requestBody\":{\"passTypeIdentifier\":\"hwpass.zyj.testhms.pass.ticket\",\"serialNumber\":\"EventTicketPass100024\"}}";
                 if (!isAddPassLoading) {
                     testrequestRegister(registerRequestBody);
                 }
@@ -473,8 +462,7 @@ public class WalletPassCnActivity extends Activity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String passType = passTypeEdit.getText().toString();
-                final WalletPassApiResponse response = mWalletPassApi.canAddPass(WHITECARD_HUTLON_APPID, passType);
+                final WalletPassApiResponse response = mWalletPassApi.canAddPass(WHITECARD_HUTLON_APPID, WHITECARD_HUTLON_PASSTYPEID);
                 Log.i(TAG, "3th App canAddPass");
 
                 runOnUiThread(new Runnable() {

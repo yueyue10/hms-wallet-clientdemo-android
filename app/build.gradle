@@ -10,8 +10,20 @@ android {
         versionCode 1
         versionName "1.0.0.311"
     }
+    signingConfigs {
+        config {
+            storeFile file('./TestHms.jks')
+            storePassword 'zhao153'
+            keyPassword 'zhao153'
+            keyAlias 'testhms'
+        }
+    }
     buildTypes {
+        debug {
+            signingConfig signingConfigs.config
+        }
         release {
+            signingConfig signingConfigs.config
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -33,4 +45,5 @@ dependencies {
     implementation 'com.huawei.hms:wallet:4.0.4.301'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.huawei.hms:base:3.0.3.301'
+    implementation 'com.huawei.hms:push:5.0.4.302'
 }

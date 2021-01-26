@@ -14,7 +14,7 @@
    limitations under the License.
  */
 
-package com.huawei.hms.wallet.util;
+package com.zyj.testhms.util;
 
 public class Base64Util {
     public static final String ENCODING = "iso8859-1";

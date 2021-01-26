@@ -14,7 +14,7 @@
    limitations under the License.
  */
 
-package com.huawei.hms.wallet;
+package com.zyj.testhms;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -31,14 +31,13 @@ import android.widget.Toast;
 
 import com.huawei.hms.api.ConnectionResult;
 import com.huawei.hms.api.HuaweiApiClient;
-import com.huawei.hms.wallet.apptest.R;
 import com.huawei.hms.wallet.constant.WalletPassConstant;
 import com.huawei.hms.wallet.pass.AppendField;
 import com.huawei.hms.wallet.pass.BarCode;
 import com.huawei.hms.wallet.pass.CommonField;
 import com.huawei.hms.wallet.pass.PassObject;
 import com.huawei.hms.wallet.pass.PassStatus;
-import com.huawei.hms.wallet.util.BasisTimesUtils;
+import com.zyj.testhms.util.BasisTimesUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
