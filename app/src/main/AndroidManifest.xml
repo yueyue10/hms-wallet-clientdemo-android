@@ -3,6 +3,9 @@
     package="com.zyj.testhms">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
 
     <application
@@ -30,10 +33,15 @@
         <activity android:name=".wallet.WalletPassCnActivity" />
         <activity android:name=".wallet.MainIndexActivity" />
         <activity android:name=".apptest.PushGetTokenActivity" />
+        <activity android:name=".computer.FaceVerifyActivity" />
 
         <meta-data
             android:name="push_kit_auto_init_enabled"
             android:value="true" />
+        <meta-data
+            android:name="com.huawei.hms.ml.DEPENDENCY"
+            android:value="faceverify" />
+
         <service
             android:name=".apptest.PushMsgService"
             android:exported="false">

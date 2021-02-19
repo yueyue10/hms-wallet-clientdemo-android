@@ -17,16 +17,30 @@
 package com.zyj.testhms;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
 
 import com.zyj.testhms.apptest.PushGetTokenActivity;
+import com.zyj.testhms.computer.FaceVerifyActivity;
 import com.zyj.testhms.wallet.MainIndexActivity;
 import com.zyj.testhms.wallet.WalletPassCnActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PageHomeActivity extends Activity {
+
+    private static final String TAG = "PageHomeActivity";
+    private static final int PERMISSION_REQUESTS = 1;
     boolean mIsSupportedBade = true;
 
     @Override
@@ -34,6 +48,9 @@ public class PageHomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
         setBadgeNum(10);
+        if (!this.allPermissionsGranted()) {
+            this.getRuntimePermissions();
+        }
     }
 
     public void hwPassBtn1(View view) {
@@ -51,6 +68,11 @@ public class PageHomeActivity extends Activity {
         startActivity(intent);
     }
 
+    public void hwPassBtn4(View view) {
+        Intent intent = new Intent(this, FaceVerifyActivity.class);
+        startActivity(intent);
+    }
+
     /**
      * set badge number
      */
@@ -64,5 +86,57 @@ public class PageHomeActivity extends Activity {
         } catch (Exception e) {
             mIsSupportedBade = false;
         }
+    }
+
+    private boolean allPermissionsGranted() {
+        for (String permission : this.getRequiredPermissions()) {
+            if (!PageHomeActivity.isPermissionGranted(this, permission)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void getRuntimePermissions() {
+        List<String> allNeededPermissions = new ArrayList<>();
+        for (String permission : this.getRequiredPermissions()) {
+            if (!PageHomeActivity.isPermissionGranted(this, permission)) {
+                allNeededPermissions.add(permission);
+            }
+        }
+        if (!allNeededPermissions.isEmpty()) {
+            ActivityCompat.requestPermissions(this, allNeededPermissions.toArray(new String[0]), PageHomeActivity.PERMISSION_REQUESTS);
+        }
+    }
+
+    private String[] getRequiredPermissions() {
+        try {
+            PackageInfo info = this.getPackageManager().getPackageInfo(this.getPackageName(), PackageManager.GET_PERMISSIONS);
+            String[] ps = info.requestedPermissions;
+            if (ps != null && ps.length > 0) {
+                return ps;
+            } else {
+                return new String[0];
+            }
+        } catch (RuntimeException e) {
+            throw e;
+        } catch (Exception e) {
+            return new String[0];
+        }
+    }
+
+    private static boolean isPermissionGranted(Context context, String permission) {
+        if (ContextCompat.checkSelfPermission(context, permission)
+                == PackageManager.PERMISSION_GRANTED) {
+            Log.i(TAG, "Permission granted: " + permission);
+            return true;
+        }
+        Log.i(TAG, "Permission NOT granted: " + permission);
+        return false;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }

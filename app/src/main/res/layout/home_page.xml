@@ -34,4 +34,14 @@
         android:onClick="hwPassBtn3"
         android:text="推送测试" />
 
+    <Button
+        android:id="@+id/hw_pass_btn4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:onClick="hwPassBtn4"
+        android:text="人脸对比" />
+
 </LinearLayout>

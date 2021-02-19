@@ -367,7 +367,7 @@ public class WalletPassCnActivity extends Activity {
         requestRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String registerRequestBody = "{\"requestBody\":{\"passTypeIdentifier\":\"hwpass.zyj.testhms.pass.ticket\",\"serialNumber\":\"EventTicketPass100024\"}}";
+                String registerRequestBody = "{\"requestBody\":{\"passTypeIdentifier\":\"hwpass.zyj.testhms.pass.ticket\",\"serialNumber\":\"EventTicketPass100003\"}}";
                 if (!isAddPassLoading) {
                     testrequestRegister(registerRequestBody);
                 }
@@ -382,7 +382,7 @@ public class WalletPassCnActivity extends Activity {
             @Override
             public void onClick(View v) {
                 String registerConfirmBody =
-                    "{\"requestBody\":{\"certificate\":{\"signature\":\"`\",\"publickKey\":\"\"},\"serialNumber\":\"\",\"passTypeIdentifier\":\"\"}}";
+                        "{\"requestBody\":{\"certificate\":{\"signature\":\"`\",\"publickKey\":\"\"},\"serialNumber\":\"\",\"passTypeIdentifier\":\"\"}}";
 
                 if (!isAddPassLoading) {
                     testconfirmRegister(registerConfirmBody);
@@ -397,7 +397,7 @@ public class WalletPassCnActivity extends Activity {
             @Override
             public void onClick(View v) {
                 String personalizeRequestBody =
-                    "{\"requestBody\":{\"passTypeIdentifier\":\"\",\"serialNumber\":\"\",\"token\":\"\"}}";
+                        "{\"requestBody\":{\"passTypeIdentifier\":\"\",\"serialNumber\":\"\",\"token\":\"\"}}";
 
                 Log.i(TAG, "personalizeRequestBody:" + personalizeRequestBody);
                 if (!isAddPassLoading) {
@@ -413,7 +413,7 @@ public class WalletPassCnActivity extends Activity {
             @Override
             public void onClick(View v) {
                 String personalizeConfirmBody =
-                    "{\"confirmCode\":\"200\",\"requestBody\":{\"passTypeIdentifier\":\"\",\"serialNumber\":\"A\",\"encryptAppletPersonalizeFields\":\"\",\"encryptSessionKey\":\"\"},\"signature\":\"\"}";
+                        "{\"confirmCode\":\"200\",\"requestBody\":{\"passTypeIdentifier\":\"\",\"serialNumber\":\"A\",\"encryptAppletPersonalizeFields\":\"\",\"encryptSessionKey\":\"\"},\"signature\":\"\"}";
                 if (!isAddPassLoading) {
                     testconfirmPersonalize(personalizeConfirmBody);
                 }
@@ -440,9 +440,9 @@ public class WalletPassCnActivity extends Activity {
             public void onClick(View v) {
                 if (!isAddPassLoading) {
                     String str1 =
-                        "{\"requestBody\":{\"passTypeIdentifier\":\"\",\"serialNumber\":\"\",\"transType\":\"car_key_hand_shake_1\",\"transContent\":\"\"}}";
+                            "{\"requestBody\":{\"passTypeIdentifier\":\"\",\"serialNumber\":\"\",\"transType\":\"car_key_hand_shake_1\",\"transContent\":\"\"}}";
                     String str2 =
-                        "{\"requestBody\":{\"passTypeIdentifier\":\"\",\"serialNumber\":\"\",\"transType\":\"car_key_hand_shake_2\",\"transContent\":\"\"}}";
+                            "{\"requestBody\":{\"passTypeIdentifier\":\"\",\"serialNumber\":\"\",\"transType\":\"car_key_hand_shake_2\",\"transContent\":\"\"}}";
                     testconfirmTransaction(str1);
                 }
             }
@@ -476,7 +476,7 @@ public class WalletPassCnActivity extends Activity {
                             } else {
                                 addPassBtn.setEnabled(false);
                                 resultText.setText("Test if you can add a card: No\n returnCode = "
-                                    + response.getReturnCode() + "\n returnRes = " + response.getReturnRes());
+                                        + response.getReturnCode() + "\n returnRes = " + response.getReturnRes());
                             }
                         } else {
                             resultText.setText("Test if you can add a card: No\n response = null");
@@ -501,7 +501,7 @@ public class WalletPassCnActivity extends Activity {
                 JSONObject jsonObject = new JSONObject();
                 JSONObject jsonObject2 = new JSONObject();
                 try {
-                    jsonObject.put("passTypeIdentifier", "hwpass.devicekey.samsonite");
+                    jsonObject.put("passTypeIdentifier", "hwpass.zyj.testhms.pass.ticket");
                     jsonObject.put("queryType", "SWIPE_LOG");
                     jsonObject2.put("requestBody", jsonObject);
                 } catch (JSONException e) {
@@ -521,7 +521,7 @@ public class WalletPassCnActivity extends Activity {
                                 resultText.setText("Test query Card: Success");
                             } else {
                                 resultText.setText("Test query Card: Failed\n returnCode = " + response.getReturnCode()
-                                    + "\n returnRes = " + response.getReturnRes());
+                                        + "\n returnRes = " + response.getReturnRes());
                             }
                         } else {
                             resultText.setText("Test query Card: Failed\n response = null");
@@ -546,7 +546,7 @@ public class WalletPassCnActivity extends Activity {
                 JSONObject jsonObject = new JSONObject();
                 JSONObject jsonObject2 = new JSONObject();
                 try {
-                    jsonObject.put("passTypeIdentifier", "hwpass.devicekey.samsonite");
+                    jsonObject.put("passTypeIdentifier", "hwpass.zyj.testhms.pass.ticket");
                     jsonObject.put("queryType", "BIND_READER_ID");
                     jsonObject2.put("requestBody", jsonObject);
                 } catch (JSONException e) {
@@ -566,7 +566,7 @@ public class WalletPassCnActivity extends Activity {
                                 resultText.setText("Test query Card: Success");
                             } else {
                                 resultText.setText("Test query Card: Failed\n returnCode = " + response.getReturnCode()
-                                    + "\n returnRes = " + response.getReturnRes());
+                                        + "\n returnRes = " + response.getReturnRes());
                             }
                         } else {
                             resultText.setText("Test query Card: Failed\n response = null");
@@ -605,7 +605,7 @@ public class WalletPassCnActivity extends Activity {
                                 resultText.setText("Test Add Card: Success");
                             } else {
                                 resultText.setText("Test Add Card: Failed\n returnCode = " + response.getReturnCode()
-                                    + "\n returnRes = " + response.getReturnRes());
+                                        + "\n returnRes = " + response.getReturnRes());
                             }
                         } else {
                             resultText.setText("Test Add Card: Failed\n response = null");
@@ -635,7 +635,7 @@ public class WalletPassCnActivity extends Activity {
             @Override
             public void run() {
                 final WalletPassApiResponse response =
-                    mWalletPassApi.queryPassStatus(WHITECARD_HUTLON_PASSTYPEID, WHITECARD_HUTLON_PASSID);
+                        mWalletPassApi.queryPassStatus(WHITECARD_HUTLON_PASSTYPEID, WHITECARD_HUTLON_PASSID);
                 Log.i(TAG, "3th App queryPassStatus");
                 runOnUiThread(new Runnable() {
 
@@ -647,13 +647,13 @@ public class WalletPassCnActivity extends Activity {
                                 final WalletPassStatus passStatus = response.getPassStatus();
                                 if (null != passStatus) {
                                     text = text + ", PassId:" + passStatus.getPassId() + "status:"
-                                        + passStatus.getStatus();
+                                            + passStatus.getStatus();
                                 }
 
                                 resultText.setText(text);
                             } else {
                                 resultText.setText("Check if the card exists: Failure\n returnCode = "
-                                    + response.getReturnCode() + "\n returnRes = " + response.getReturnRes());
+                                        + response.getReturnCode() + "\n returnRes = " + response.getReturnRes());
                             }
                         } else {
                             resultText.setText("Check if the card exists: Failure\n response = null");
@@ -688,12 +688,13 @@ public class WalletPassCnActivity extends Activity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        Log.i(TAG, "requireAccessToken:  " + response.getAccessToken());
                         if (response != null) {
                             if ("0".equals(response.getReturnCode())) {
                                 resultText.setText("Get token: Yes" + response.getAccessToken());
                             } else {
                                 resultText.setText("Get token: no returnCode = " + response.getReturnCode()
-                                    + " returnRes = " + response.getReturnRes());
+                                        + " returnRes = " + response.getReturnRes());
                             }
                         } else {
                             resultText.setText("Get token: no response = null");
@@ -726,7 +727,7 @@ public class WalletPassCnActivity extends Activity {
                 Log.i(TAG, "3th App addPass base64ZipData ======== " + base64ZipData);
 
                 final WalletPassApiResponse response =
-                    mWalletPassApi.requireAccessCardSec(WHITECARD_HUTLON_PASSTYPEID, WHITECARD_HUTLON_PASSID, sing);
+                        mWalletPassApi.requireAccessCardSec(WHITECARD_HUTLON_PASSTYPEID, WHITECARD_HUTLON_PASSID, sing);
                 Log.i(TAG, "3th App addPass");
                 runOnUiThread(new Runnable() {
 
@@ -741,13 +742,13 @@ public class WalletPassCnActivity extends Activity {
                                 Log.i(TAG, "teeTempTransId:" + teeTempTransId);
                                 Log.i(TAG, "returnRes:" + returnRes);
                                 resultText.setText(
-                                    "Getting public key: Success" + returnRes + "   size: " + returnRes.length());
+                                        "Getting public key: Success" + returnRes + "   size: " + returnRes.length());
 
                                 // testAddWritePass();
 
                             } else {
                                 resultText.setText("Getting public key: failed returnCode = " + response.getReturnCode()
-                                    + " returnRes = " + response.getReturnRes());
+                                        + " returnRes = " + response.getReturnRes());
 
                             }
                         } else {
@@ -770,11 +771,11 @@ public class WalletPassCnActivity extends Activity {
         isAddPassLoading = true;
 
         if (TextUtils.isEmpty(WHITECARD_HUTLON_PASSID) || TextUtils.isEmpty(WHITECARD_HUTLON_PASSTYPEID)
-            || TextUtils.isEmpty(cardParams)) {
+                || TextUtils.isEmpty(cardParams)) {
             Toast
-                .makeText(WalletPassCnActivity.this, "appId && passType && cardParams Can not be empty",
-                    Toast.LENGTH_SHORT)
-                .show();
+                    .makeText(WalletPassCnActivity.this, "appId && passType && cardParams Can not be empty",
+                            Toast.LENGTH_SHORT)
+                    .show();
             return;
         }
         new Thread(new Runnable() {
@@ -782,7 +783,7 @@ public class WalletPassCnActivity extends Activity {
             public void run() {
 
                 mWalletPassApi.modifyNFCCard(WHITECARD_HUTLON_PASSTYPEID, WHITECARD_HUTLON_PASSID, cardParams, "", sing,
-                    mIpassModifyNFCCardImpl);
+                        mIpassModifyNFCCardImpl);
 
             }
         }).start();
@@ -800,8 +801,8 @@ public class WalletPassCnActivity extends Activity {
                             resultText.setText("Write Card: Success");
                         } else {
                             resultText
-                                .setText("Write Card: Failure returnCode = " + walletPassApiResponse.getReturnCode()
-                                    + " returnRes = " + walletPassApiResponse.getReturnRes());
+                                    .setText("Write Card: Failure returnCode = " + walletPassApiResponse.getReturnCode()
+                                            + " returnRes = " + walletPassApiResponse.getReturnRes());
                         }
                     } else {
                         resultText.setText("Write Card: Failure response = null");
@@ -819,15 +820,15 @@ public class WalletPassCnActivity extends Activity {
         // The content to be written in the card is defined by the third party (the data below is the structure data of
         // the test example lv, which needs to be filled)
         String EncryptedKeyId1 =
-            "182C010033481965BB3C6CC7C261926D54701D479103DBF3BB0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+                "182C010033481965BB3C6CC7C261926D54701D479103DBF3BB0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
         String EncryptedKeyId2 =
-            "181C010033A5BA5A40C5ADA8F5E123D2D2F434F95603AF9D660000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+                "181C010033A5BA5A40C5ADA8F5E123D2D2F434F95603AF9D660000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
         String EncryptedKeyId3 =
-            "188C01003377ECB36BE6F034797AE61053C5620F48038DC0640000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+                "188C01003377ECB36BE6F034797AE61053C5620F48038DC0640000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
         String EncryptedKeyId4 =
-            "1CDF5A085555555555555555DF3806DF0101DF02108D0600130391133800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+                "1CDF5A085555555555555555DF3806DF0101DF02108D0600130391133800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
         String EncryptedKeyId5 =
-            "0803aaddccaabbccdd000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
+                "0803aaddccaabbccdd000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
 
         try {
             jsonObject.put("E001", TestUtil.encryptByPublicKey(EncryptedKeyId1, returnRes));
@@ -903,18 +904,18 @@ public class WalletPassCnActivity extends Activity {
         resultText.setText("Reading card, please wait ...");
         isAddPassLoading = true;
         if (TextUtils.isEmpty(WHITECARD_HUTLON_PASSID) || TextUtils.isEmpty(WHITECARD_HUTLON_PASSTYPEID)
-            || TextUtils.isEmpty(cardParams)) {
+                || TextUtils.isEmpty(cardParams)) {
             Toast
-                .makeText(WalletPassCnActivity.this, "appId && passType && cardParams Can not be empty",
-                    Toast.LENGTH_SHORT)
-                .show();
+                    .makeText(WalletPassCnActivity.this, "appId && passType && cardParams Can not be empty",
+                            Toast.LENGTH_SHORT)
+                    .show();
             return;
         }
         new Thread(new Runnable() {
             @Override
             public void run() {
                 final WalletPassApiResponse response = mWalletPassApi.readNFCCard(WHITECARD_HUTLON_PASSTYPEID,
-                    WHITECARD_HUTLON_PASSID, cardParams, "", sing);
+                        WHITECARD_HUTLON_PASSID, cardParams, "", sing);
                 Log.i(TAG, "3th App canAddPass");
 
                 runOnUiThread(new Runnable() {
@@ -949,7 +950,7 @@ public class WalletPassCnActivity extends Activity {
                                 resultText.setText("Card reading result: success" + result);
                             } else {
                                 resultText.setText("Card reading result: failure returnCode = "
-                                    + response.getReturnCode() + " returnRes = " + response.getReturnRes());
+                                        + response.getReturnCode() + " returnRes = " + response.getReturnRes());
                             }
                         } else {
                             resultText.setText("Get token: no response = null");
@@ -976,9 +977,9 @@ public class WalletPassCnActivity extends Activity {
             // readNFCKeyMap.put("publicKey", Base64.getEncoder().encodeToString(publicKey.getEncoded()));
             // readNFCKeyMap.put("privateKey", Base64.getEncoder().encodeToString(privateKey.getEncoded()));
             readNFCKeyMap.put("publicKey",
-                "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhAj4Z58JcmkuKYfgCk68yPlEAg5EiyA5Eyv1HE+utJjHK1FMuiUqyPoOIUoVclchb5AZalLsvSuNnwoca2XjwWWxhc8f/CuNVvtwEZTuJts3Co93cBziiGuoPlmyZMlKvN+lk3B1CvG6/Zs2GVuXh5tC8BmULutXgYFzHfiC083ydaGQZYyeSR4KKa22QwZiC8vLFRyYdr4Bgvxc4BR01BmhU1RMW4zvLeJcpcIch4nz2dLj277HT5Qveo0AtOzzLVeCD+bUajMJvh7tYcxUjxExQ66TMx8J*******************************************************************");
+                    "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhAj4Z58JcmkuKYfgCk68yPlEAg5EiyA5Eyv1HE+utJjHK1FMuiUqyPoOIUoVclchb5AZalLsvSuNnwoca2XjwWWxhc8f/CuNVvtwEZTuJts3Co93cBziiGuoPlmyZMlKvN+lk3B1CvG6/Zs2GVuXh5tC8BmULutXgYFzHfiC083ydaGQZYyeSR4KKa22QwZiC8vLFRyYdr4Bgvxc4BR01BmhU1RMW4zvLeJcpcIch4nz2dLj277HT5Qveo0AtOzzLVeCD+bUajMJvh7tYcxUjxExQ66TMx8J*******************************************************************");
             readNFCKeyMap.put("privateKey",
-                "MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCECPhnnwlyaS4ph+AKTrzI+UQCDkSLIDkTK/UcT660mMcrUUy6JSrI+g4hShVyVyFvkBlqUuy9K42fChxrZePBZbGFzx/8K41W+3ARlO4m2zcKj3dwHOKIa6g+WbJkyUq836WTcHUK8br9mzYZW5eHm0LwGZQu61eBgXMd+ILTzfJ1oZBljJ5JHgoprbZDBmILy8sVHJh2vgGC/FzgFHTUGaFTVExbjO8t4lylwhyHifPZ0uPbvsdPlC96jQC07PMtV4IP5tRqMwm+Hu1hzFSPETFDrpMzHwl1cuvPwJOqPwKP2rfp/lgWEAZcgQlV5H44htPx2XOUSZMkMNjIBn/JAgMBAAECggEACfNPHSgMIzYwB2s5BC3Y5mB6spj2q3F7O6mlaEPNC8kzwVz4JlMkvU6y/+lAYoSUfX7jm3KyarM8kg7GA4YDOxD55vasF2oE1dhPItQRepYsuLwFKUrT+6n5XPGPky7kVgWYydrAx1leWTx4QEL50Xtu+P9EfqC30Ie78DdJTMLtzy8Jxn9vCIevQMS5AHY49H/9YnC8rGZqftqgWlQ91zKVvHc1f7TftqTb9q03Tc1cMdV8zujkKFAHlGSY57IxWiB1QjLqk1zCcbtT9lbep5RjzUYDFFRvqCEExMX1A37Q5XQosUl9zi59o+ZmcO8IRvrZAGnLhnAtUFIA5sTWAQKBgQDDJPeN5caRO3/rT9rQ8KH7siVYaSJpc+JRfCoUyDUGZtR7bVh3W4+C4h7c55I2bwiHxx+8hywEISi5SmgcwCUQ7EoBCWXleEXbgHD1JyAvcbA7SH7AoWuPFZ/FjGVv29arHCnDgpg8Sst3ni0gvWhDALuf1mZK6wn***********************************************************************************************************************************************");
+                    "MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCECPhnnwlyaS4ph+AKTrzI+UQCDkSLIDkTK/UcT660mMcrUUy6JSrI+g4hShVyVyFvkBlqUuy9K42fChxrZePBZbGFzx/8K41W+3ARlO4m2zcKj3dwHOKIa6g+WbJkyUq836WTcHUK8br9mzYZW5eHm0LwGZQu61eBgXMd+ILTzfJ1oZBljJ5JHgoprbZDBmILy8sVHJh2vgGC/FzgFHTUGaFTVExbjO8t4lylwhyHifPZ0uPbvsdPlC96jQC07PMtV4IP5tRqMwm+Hu1hzFSPETFDrpMzHwl1cuvPwJOqPwKP2rfp/lgWEAZcgQlV5H44htPx2XOUSZMkMNjIBn/JAgMBAAECggEACfNPHSgMIzYwB2s5BC3Y5mB6spj2q3F7O6mlaEPNC8kzwVz4JlMkvU6y/+lAYoSUfX7jm3KyarM8kg7GA4YDOxD55vasF2oE1dhPItQRepYsuLwFKUrT+6n5XPGPky7kVgWYydrAx1leWTx4QEL50Xtu+P9EfqC30Ie78DdJTMLtzy8Jxn9vCIevQMS5AHY49H/9YnC8rGZqftqgWlQ91zKVvHc1f7TftqTb9q03Tc1cMdV8zujkKFAHlGSY57IxWiB1QjLqk1zCcbtT9lbep5RjzUYDFFRvqCEExMX1A37Q5XQosUl9zi59o+ZmcO8IRvrZAGnLhnAtUFIA5sTWAQKBgQDDJPeN5caRO3/rT9rQ8KH7siVYaSJpc+JRfCoUyDUGZtR7bVh3W4+C4h7c55I2bwiHxx+8hywEISi5SmgcwCUQ7EoBCWXleEXbgHD1JyAvcbA7SH7AoWuPFZ/FjGVv29arHCnDgpg8Sst3ni0gvWhDALuf1mZK6wn***********************************************************************************************************************************************");
 
             jsonObject.put("car_key_sn", "");
             jsonObject.put("car_key_group", "");
@@ -1029,7 +1030,7 @@ public class WalletPassCnActivity extends Activity {
                                 resultText.setText("Get PassDeviceId: Yes" + response.getPassDeviceId());
                             } else {
                                 resultText.setText("Get PassDeviceId: No returnCode = " + response.getReturnCode()
-                                    + " returnRes = " + response.getReturnRes());
+                                        + " returnRes = " + response.getReturnRes());
                             }
                         } else {
                             resultText.setText("Get PassDeviceId: No response = null");
@@ -1057,7 +1058,7 @@ public class WalletPassCnActivity extends Activity {
             @Override
             public void run() {
                 final WalletPassApiResponse response =
-                    mWalletPassApi.deletePass(WHITECARD_HUTLON_PASSTYPEID, WHITECARD_HUTLON_PASSID, sing);
+                        mWalletPassApi.deletePass(WHITECARD_HUTLON_PASSTYPEID, WHITECARD_HUTLON_PASSID, sing);
                 Log.i(TAG, "3th App deletePass");
                 runOnUiThread(new Runnable() {
 
@@ -1071,7 +1072,7 @@ public class WalletPassCnActivity extends Activity {
 
                             } else {
                                 resultText.setText("Delete card: failed returnCode = " + response.getReturnCode()
-                                    + " returnRes = " + response.getReturnRes());
+                                        + " returnRes = " + response.getReturnRes());
 
                             }
                         } else {
@@ -1106,7 +1107,7 @@ public class WalletPassCnActivity extends Activity {
                                 resultText.setText("认证注册请求：成功");
                             } else {
                                 resultText.setText("认证注册请求：失败\n returnCode = " + response.getReturnCode()
-                                    + "\n returnRes = " + response.getReturnRes());
+                                        + "\n returnRes = " + response.getReturnRes());
                             }
                         } else {
                             resultText.setText("认证注册请求：失败\n response = null");
@@ -1139,7 +1140,7 @@ public class WalletPassCnActivity extends Activity {
                                 resultText.setText("认证注册确认：成功");
                             } else {
                                 resultText.setText("认证注册确认：失败\n returnCode = " + response.getReturnCode()
-                                    + "\n returnRes = " + response.getReturnRes());
+                                        + "\n returnRes = " + response.getReturnRes());
                             }
                         } else {
                             resultText.setText("认证注册确认：失败\n response = null");
@@ -1172,7 +1173,7 @@ public class WalletPassCnActivity extends Activity {
                                 resultText.setText("个人化请求：成功");
                             } else {
                                 resultText.setText("个人化请求：失败\n returnCode = " + response.getReturnCode()
-                                    + "\n returnRes = " + response.getReturnRes());
+                                        + "\n returnRes = " + response.getReturnRes());
                             }
                         } else {
                             resultText.setText("个人化请求：失败\n response = null");
@@ -1204,7 +1205,7 @@ public class WalletPassCnActivity extends Activity {
                                 resultText.setText("个人化确认：成功");
                             } else {
                                 resultText.setText("个人化确认：失败\n returnCode = " + response.getReturnCode()
-                                    + "\n returnRes = " + response.getReturnRes());
+                                        + "\n returnRes = " + response.getReturnRes());
                             }
                         } else {
                             resultText.setText("个人化确认：失败\n response = null");
@@ -1236,7 +1237,7 @@ public class WalletPassCnActivity extends Activity {
                                 resultText.setText("请求交易：成功");
                             } else {
                                 resultText.setText("请求交易：失败\n returnCode = " + response.getReturnCode()
-                                    + "\n returnRes = " + response.getReturnRes());
+                                        + "\n returnRes = " + response.getReturnRes());
                             }
                         } else {
                             resultText.setText("请求交易：失败\n response = null");
@@ -1268,7 +1269,7 @@ public class WalletPassCnActivity extends Activity {
                                 resultText.setText("测试握手：成功: " + res);
                             } else {
                                 resultText.setText("测试握手：失败\n returnCode = " + response.getReturnCode()
-                                    + "\n returnRes = " + response.getReturnRes());
+                                        + "\n returnRes = " + response.getReturnRes());
                             }
                         } else {
                             resultText.setText("测试握手：失败\n response = null");
